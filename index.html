@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parkhaus Media - Red Bull Case</title>
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#f6f4ee;--ink:#101014;--muted:#696761;--line:#d8d3c8;--rb:#002b7f;--red:#e21b2d;--yellow:#ffc400;--r:8px}
+html{scroll-behavior:smooth}
+body{font-family:"Avenir Next","Helvetica Neue",Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+a{color:inherit;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:10;height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 32px;color:white;background:linear-gradient(#101014cc,#10101400)}
+.logo{font-weight:800;font-size:13px;text-transform:uppercase}.nav a{font-size:13px}
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;background:#08080b;color:white}
+.hero-copy{padding:120px 6vw 48px;display:flex;flex-direction:column;justify-content:space-between}
+.case{color:var(--yellow);font-size:13px;font-weight:800;text-transform:uppercase;margin-bottom:24px}
+h1{font-size:86px;line-height:.9;letter-spacing:0;max-width:780px}
+.lead{font-size:22px;color:#ffffffcc;max-width:650px;margin-top:28px}
+.hero-img{position:relative;min-height:600px;background:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%208.JPG") center/cover no-repeat;filter:contrast(1.08) saturate(.85)}
+.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08080b 0%,#08080b33 45%,#002b7f33)}
+.badge{display:inline-flex;gap:10px;align-items:center;margin-top:36px;padding:12px 14px;border:1px solid #ffffff40;border-radius:var(--r);font-weight:800;text-transform:uppercase;font-size:12px}
+.dot{width:10px;height:10px;background:var(--red);border-radius:50%;box-shadow:18px 0 var(--yellow)}
+section{padding:96px 6vw;border-bottom:1px solid var(--line)}
+.wrap{max-width:1280px;margin:auto}
+.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+h2{font-size:56px;line-height:1;letter-spacing:0;max-width:680px}
+p{font-size:19px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:var(--r);overflow:hidden;margin-top:42px}
+.stat{background:var(--bg);padding:24px;min-height:150px}.num{font-size:50px;font-weight:900;line-height:1;color:var(--rb)}.label{font-size:14px;color:var(--muted);margin-top:10px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:42px}
+.shot{min-height:340px;border-radius:var(--r);background-size:cover;background-position:center;filter:contrast(1.04) saturate(.82);position:relative;overflow:hidden}
+.shot:after{content:attr(data-label);position:absolute;left:14px;bottom:14px;background:white;padding:8px 10px;border-radius:var(--r);font-size:12px;font-weight:800;text-transform:uppercase}
+.s1{background-image:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%201.JPG")}
+.s2{background-image:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%2016.JPG")}
+.s3{background-image:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%2022.JPG")}
+.s4{background-image:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%208.JPG")}
+.case-block{background:var(--rb);color:white}
+.case-block p{color:#ffffffcc}.case-block h2 span{color:var(--yellow)}
+.mock{margin-top:42px;border-radius:var(--r);overflow:hidden;background:#08133f;color:white;display:grid;grid-template-columns:1fr 1fr}
+.mock-copy{padding:36px}.mock-copy b{display:block;font-size:13px;color:var(--yellow);text-transform:uppercase;margin-bottom:22px}.mock-copy h3{font-size:46px;line-height:1}.mock-copy p{margin-top:18px;color:#ffffffcc}
+.mock-img{min-height:380px;background:url("../Köln%20Heumarkt%20Conti%20Parkhaus/Köln%20Heumarkt%20Contiparkhaus%201.JPG") center/cover no-repeat;position:relative}
+.mock-img:after{content:"RED BULL\\A GIVES THE CITY WINGS";white-space:pre;position:absolute;inset:auto 24px 24px 24px;background:var(--red);color:white;padding:22px;border-radius:var(--r);font-size:36px;line-height:.95;font-weight:900}
+.cta{text-align:center;background:#101014;color:white}.cta p{margin:18px auto 30px;max-width:650px;color:#ffffffb8}.btn{display:inline-flex;background:var(--yellow);color:#101014;border-radius:var(--r);padding:15px 22px;font-weight:900;text-transform:uppercase;font-size:13px}
+@media(max-width:900px){.hero,.grid,.mock{grid-template-columns:1fr}.hero-img{min-height:420px;order:-1}h1{font-size:58px}h2{font-size:42px}.stats,.gallery{grid-template-columns:1fr 1fr}.nav{padding:0 18px}}
+@media(max-width:560px){h1{font-size:44px}.lead{font-size:18px}.stats,.gallery{grid-template-columns:1fr}.shot{min-height:260px}section{padding:64px 20px}.hero-copy{padding:84px 20px 36px}.mock-img:after{font-size:26px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="logo">Parkhaus Media</div><a href="#case">Red Bull Demo Case</a></nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div>
+      <div class="case">Fiktiver Brand Case / Köln Heumarkt</div>
+      <h1>Ein Parkhaus wird zur Red Bull Zone.</h1>
+      <p class="lead">Nicht noch eine Fläche. Ein kompletter Mobilitätsort, der 12 Monate lang einer Marke gehört.</p>
+      <div class="badge"><span class="dot"></span><span>429 Flächen / 90 Sekunden / 1 Marke</span></div>
+    </div>
+  </div>
+  <div class="hero-img" aria-label="Einfahrt Parkhaus Köln Heumarkt"></div>
+</header>
+
+<section>
+  <div class="wrap grid">
+    <h2>Der Moment ist klein. Die Aufmerksamkeit nicht.</h2>
+    <p>Beim Einfahren, Parken und Bezahlen entsteht eine ruhige Kontaktsituation. Red Bull würde hier nicht zwischen anderen Marken hängen, sondern den Ort übernehmen: Einfahrt, Kasse, Wegeführung, Aufzug, Parkdeck.</p>
+  </div>
+  <div class="wrap stats">
+    <div class="stat"><div class="num">90s</div><div class="label">Dwell Time pro Parkvorgang</div></div>
+    <div class="stat"><div class="num">78%</div><div class="label">Recall nach 24h im Test</div></div>
+    <div class="stat"><div class="num">429</div><div class="label">Kontaktflächen am Standort</div></div>
+    <div class="stat"><div class="num">12M</div><div class="label">exklusive Präsenz</div></div>
+  </div>
+</section>
+
+<section id="case" class="case-block">
+  <div class="wrap grid">
+    <h2>Case-Idee: <span>Red Bull Night Drive</span></h2>
+    <p>Der Standort wird zur Energie-Schleuse vor Altstadt, Rhein, Konzerten und Events. Die Marke begleitet Fahrer vom ersten Kontakt an der Einfahrt bis zum letzten Kontakt am Kassenautomaten.</p>
+  </div>
+  <div class="wrap mock">
+    <div class="mock-copy"><b>Demo visual</b><h3>Gives the city wings.</h3><p>Farbflächen, Leitsystem und Aktivierung vor Ort machen aus dem Parkhaus einen wiedererkennbaren Markenraum.</p></div>
+    <div class="mock-img"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid">
+    <h2>Echte Standortbilder statt generischer Mockups.</h2>
+    <p>Die Fotos zeigen die tatsächliche Umgebung: Einfahrt, Kasse, Parkdeck und Eingang. Die Gestaltung bleibt bewusst reduziert, damit der Standort und der Business Case stärker wirken.</p>
+  </div>
+  <div class="wrap gallery">
+    <div class="shot s4" data-label="Einfahrt"></div>
+    <div class="shot s1" data-label="Kassenbereich"></div>
+    <div class="shot s2" data-label="Parkdeck"></div>
+    <div class="shot s3" data-label="Heumarkt Zugang"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Erst der Pilot. Dann die Kategorie.</h2>
+    <p>Ein Standort, eine Marke, zwölf Monate. Genug, um Recall, Traffic und Markenwirkung sauber als Case Study zu beweisen.</p>
+    <a class="btn" href="mailto:hello@parkhaus.media?subject=Pilot%20Koeln%20Heumarkt">Pilot anfragen</a>
+  </div>
+</section>
+</body>
+</html>
